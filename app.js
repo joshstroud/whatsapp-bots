@@ -21,7 +21,7 @@ app.get('/test', function (req, res) {
         }
     };
 
-    console.log('phone number', process.env.TARGET_PHONE_NUMBER)
+    // console.log('phone number', process.env.TARGET_PHONE_NUMBER)
 
     const config = {
         headers: {
@@ -36,7 +36,7 @@ app.get('/test', function (req, res) {
     ).then(response => {
         console.log('Text sent.');
         console.log(response.data);
-        res.send('Text sent to number.')
+        res.send(`Text sent to number. Text content: ${body.text.body}`);
     }).catch(error => {
         console.log('Error sending text.');
         console.log(error);
